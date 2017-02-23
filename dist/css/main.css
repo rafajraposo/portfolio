@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Righteous");
-@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700|Montserrat:300,400,700|Nunito:300,400,700|Open+Sans:300,400,700|Source+Sans+Pro:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:400,700");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
 :root, html, body {
   font-size: 16px; }
 
 html, body {
   font-family: 'Open Sans', sans-serif; }
+
+.animate--all {
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out; }
 
 .animate--background-color {
   -webkit-transition: background-color .3s ease-in-out;
@@ -12,8 +17,7 @@ html, body {
 
 .navbar {
   background: rgba(240, 240, 240, 0.95);
-  border: 0;
-  box-shadow: 0px 0px 5px 5px rgba(100, 100, 100, 0.1); }
+  border: 0; }
   .navbar .navbar-toggle {
     background-color: #ffffff;
     border: 0; }
@@ -27,19 +31,36 @@ html, body {
     padding: 10px 10px 10px 20px;
     font-size: 1.75rem;
     font-family: 'Righteous', cursive;
-    color: #ffffff;
-    text-shadow: 0px 1px 1px #dddddd; }
+    color: #fcb892;
+    text-shadow: 0px 1px 1px #ffffff; }
     .navbar .navbar-brand__logo {
       max-height: 30px;
       margin-right: 5px;
       display: inline-block; }
-    .navbar .navbar-brand:hover {
-      color: #ffffff; }
+    .navbar .navbar-brand a {
+      color: #fcb892; }
+      .navbar .navbar-brand a:hover, .navbar .navbar-brand a:focus {
+        color: #fcb892; }
   .navbar .navbar-nav {
-    font-size: 1.25rem;
-    font-weight: 300;
-    text-align: right;
-    color: #00b2af; }
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: right; }
+    .navbar .navbar-nav a {
+      color: #ff8d4c !important; }
+  .navbar--initial {
+    background: #ff8d4c;
+    box-shadow: none; }
+    .navbar--initial .navbar-brand {
+      color: #ffffff;
+      text-shadow: 0px 1px 1px #dddddd; }
+      .navbar--initial .navbar-brand:hover, .navbar--initial .navbar-brand:focus {
+        color: #ffffff; }
+      .navbar--initial .navbar-brand a {
+        color: #ffffff; }
+        .navbar--initial .navbar-brand a:hover, .navbar--initial .navbar-brand a:focus {
+          color: #ffffff; }
+    .navbar--initial .navbar-nav a {
+      color: #ffffff !important; }
 
 .section {
   height: 90vh;
@@ -49,22 +70,79 @@ html, body {
     top: 50%;
     -webkit-transform: translateY(-50%);
             transform: translateY(-50%); }
+    .section .vertical-center--and-horizontal {
+      margin: 0 auto;
+      left: 0;
+      right: 0; }
 
-.about {
+.dev {
   background: #ff8d4c;
   overflow: hidden;
   text-align: center;
   color: #ffffff; }
-  .about h1 {
-    font-size: 5rem;
+  .dev h1 {
+    font-family: 'Inconsolata', monospace;
+    font-size: 2.25rem;
     font-weight: 700; }
-  .about p {
+    @media only screen and (min-width: 1024px) {
+      .dev h1 {
+        font-size: 6.25rem; } }
+  .dev p {
     font-size: 1.25rem;
     color: #fcb892; }
+    @media only screen and (min-width: 1024px) {
+      .dev p {
+        font-size: 2rem; } }
+    .dev p span {
+      color: #ffffff; }
+      .dev p span.highlight {
+        background: #00b2af;
+        padding: 0 5px; }
+
+.about {
+  background: #ffffff;
+  overflow: hidden;
+  text-align: center;
+  color: #333333; }
+  .about h1 {
+    font-size: 3.5rem;
+    font-weight: 700; }
+    @media only screen and (min-width: 1024px) {
+      .about h1 {
+        font-size: 10rem; } }
+  .about p {
+    font-size: 1rem;
+    color: #333333; }
     .about p span {
       padding: 0 5px;
       color: #ffffff; }
       .about p span.highlight {
         background: #00b2af; }
+
+.blinking-cursor {
+  width: 10px;
+  height: 40px;
+  display: inline-block;
+  background: #ffffff;
+  margin-left: 10px;
+  margin-bottom: -5px;
+  -webkit-animation: 1s blink step-end infinite;
+          animation: 1s blink step-end infinite; }
+  @media only screen and (min-width: 1024px) {
+    .blinking-cursor {
+      width: 15px;
+      height: 80px; } }
+
+@-webkit-keyframes "blink" {
+  from, to {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
+
+@keyframes "blink" {
+  from, to {
+    opacity: 0; }
+  50% {
+    opacity: 1; } }
 
 /*# sourceMappingURL=main.css.map */

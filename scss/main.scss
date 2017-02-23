@@ -1,6 +1,7 @@
 
 @import 'fonts';
 @import 'colors';
+@import 'media-queries';
 
 :root, html, body {
   font-size: 16px;
@@ -11,6 +12,9 @@ html, body {
 }
 
 .animate {
+  &--all {
+    transition: all .3s ease-in-out;
+  }
   &--background-color {
     transition: background-color .3s ease-in-out;
   }
@@ -19,7 +23,6 @@ html, body {
 .navbar {
   background: rgba($gallery, .95);
   border: 0;
-  box-shadow: 0px 0px 5px 5px rgba(100, 100, 100, .1);
 
   .navbar-toggle {
     background-color: $white;
@@ -42,8 +45,8 @@ html, body {
     padding: 10px 10px 10px 20px;
     font-size: 1.75rem;
     font-family: 'Righteous', cursive;
-    color: $white;
-    text-shadow: 0px 1px 1px #dddddd;
+    color: $rose-bud;
+    text-shadow: 0px 1px 1px $white;
 
     &__logo {
       max-height: 30px;
@@ -51,16 +54,51 @@ html, body {
       display: inline-block;
     }
 
-    &:hover {
-      color: $white;
+    a {
+     color: $rose-bud;
+
+      &:hover, &:focus {
+        color: $rose-bud;
+      }
     }
   }
 
   .navbar-nav {
-    font-size: 1.25rem;
-    font-weight: 300;
+    font-size: 1rem;
+    font-weight: 400;
     text-align: right;
-    color: $persian-green;
+
+    a {
+      color: $coral !important;
+    }
+  }
+
+  &--initial {
+    background: $coral;
+    box-shadow: none;
+
+    .navbar-brand {
+      color: $white;
+      text-shadow: 0px 1px 1px #dddddd;
+
+      &:hover, &:focus {
+        color: $white;
+      }
+
+      a {
+       color: $white;
+
+        &:hover, &:focus {
+          color: $white;
+        }
+      }
+    }
+
+    .navbar-nav {
+      a {
+        color: $white !important;
+      }
+    }
   }
 }
 
@@ -72,24 +110,68 @@ html, body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+
+    &--and-horizontal {
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+    }
   }
 }
 
-.about {
+.dev {
   background: $coral;
   overflow: hidden;
   text-align: center;
   color: $white;
 
-
   h1 {
-    font-size: 5rem;
+    font-family: 'Inconsolata', monospace;
+    font-size: 2.25rem;
     font-weight: 700;
+
+    @include min-screen(1024px) {
+      font-size: 6.25rem;
+    }
   }
 
   p {
     font-size: 1.25rem;
     color: $rose-bud;
+
+    @include min-screen(1024px) {
+      font-size: 2rem;
+    }
+
+    span {
+      color: $white;
+
+      &.highlight {
+        background: $persian-green;
+        padding: 0 5px;
+      }
+    }
+  }
+}
+
+.about {
+  background: $white;
+  overflow: hidden;
+  text-align: center;
+  color: $mine-shaft;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+
+    @include min-screen(1024px) {
+      font-size: 10rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    color: $mine-shaft;;
 
     span {
       padding: 0 5px;
@@ -99,5 +181,29 @@ html, body {
         background: $persian-green;
       }
     }
+  }
+}
+
+.blinking-cursor {
+  width: 10px;
+  height: 40px;
+  display: inline-block;
+  background: $white;
+  margin-left: 10px;
+  margin-bottom: -5px;
+  animation: 1s blink step-end infinite;
+
+  @include min-screen(1024px) {
+    width: 15px;
+    height: 80px;
+  }
+}
+
+@keyframes "blink" {
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
   }
 }
